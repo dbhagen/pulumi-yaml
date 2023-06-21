@@ -44,7 +44,7 @@ func main() {
 	flag.Parse()
 	var cancelChannel chan bool
 	args := flag.Args()
-	logging.InitLogging(false, 0, false)
+	logging.InitLogging(true, 4, false)
 	cmdutil.InitTracing("pulumi-language-yaml", "pulumi-language-yaml", tracing)
 
 	// Fetch the engine address if available so we can do logging, etc.

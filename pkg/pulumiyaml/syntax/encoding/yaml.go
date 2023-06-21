@@ -4,6 +4,7 @@ package encoding
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 
@@ -75,6 +76,7 @@ func yamlNodeRange(filename string, n *yaml.Node) *hcl.Range {
 // for the node itself, though it does use the tag decoder for the node's children. This allows tag decoders to call
 // UnmarshalYAMLNode without infinitely recurring on the same node. See UnmarshalYAML for more details.
 func UnmarshalYAMLNode(filename string, n *yaml.Node, tags TagDecoder) (syntax.Node, syntax.Diagnostics) {
+	log.Println("UnmarshalYAMLNode")
 	rng := yamlNodeRange(filename, n)
 
 	var diags syntax.Diagnostics
